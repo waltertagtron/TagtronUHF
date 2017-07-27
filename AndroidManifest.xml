@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="za.co.tagtron.tagtronuhf"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:name="za.co.tagtron.tagtronuhf.UHFApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/tagtron_large"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="za.co.tagtron.tagtronuhf.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="za.co.tagtron.tagtronuhf.JobCardCreationActivity"
+            android:label="@string/title_activity_job_card_creation"
+            android:parentActivityName="za.co.tagtron.tagtronuhf.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tagtronuhf.MainActivity" />
+        </activity>
+        <activity
+            android:name="za.co.tagtron.tagtronuhf.JobCardViewerActivity"
+            android:label="@string/title_activity_job_card_viewer"
+            android:parentActivityName="za.co.tagtron.tagtronuhf.MainActivity" >
+        </activity>
+        <activity
+            android:name="za.co.tagtron.tagtronuhf.ConfigActivity"
+            android:label="@string/title_activity_config" >
+        </activity>
+        <activity
+            android:name="za.co.tagtron.tagtronuhf.InspectionActivity"
+            android:label="@string/title_activity_inspection" >
+        </activity>
+        <activity
+            android:name="za.co.tagtron.tagtronuhf.DomainSelectionActivity"
+            android:label="@string/title_activity_domain_selection" >
+        </activity>
+    </application>
+
+</manifest>

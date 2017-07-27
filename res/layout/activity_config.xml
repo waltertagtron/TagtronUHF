@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/light_blue"
+    tools:context="za.co.tagtron.tagtronuhf.ConfigActivity" >
+
+    <TextView 
+        android:id="@+id/label_min_tags"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentLeft="true"
+    	android:layout_alignParentTop="true"
+    	android:layout_margin="10dp"
+    	android:text="@string/label_min_tags"
+    	android:textSize="20sp" />
+ 
+	<Spinner 
+        android:id="@+id/spinner_min_tags"
+        android:layout_width="60dp"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentTop="true"
+    	android:layout_toRightOf="@+id/label_min_tags"
+    	android:layout_margin="10dp" />
+    
+    <TextView
+        android:id="@+id/label_output_power"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label_min_tags"
+        android:layout_margin="10dp"
+        android:text="@string/label_output_power"
+        android:textSize="20sp" />
+    
+    <SeekBar
+        android:id="@+id/seekbar_power"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@+id/label_output_power"
+    	android:max="25" />
+    
+    <Button
+        android:id="@+id/button_set_power"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@+id/seekbar_power"
+    	android:layout_margin="10dp"
+    	android:text="@string/button_set_power" />
+    
+</RelativeLayout>

@@ -1,0 +1,82 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@drawable/rounded_corner_background">
+    
+    <TextView 
+		android:id="@+id/jobCard_labelDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:text="@string/label_job_date" />
+        
+    <TextView
+        android:id="@+id/jobCard_textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/jobCard_labelDate"
+        android:layout_margin="5dp"
+        android:typeface="monospace" />
+   
+   	<TextView 
+		android:id="@+id/jobCard_labelName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/jobCard_labelDate"
+        android:layout_margin="5dp"
+        android:text="@string/label_assigned_to" />
+   	    
+   <TextView
+        android:id="@+id/jobCard_textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/jobCard_labelName"
+        android:layout_below="@+id/jobCard_textDate"
+        android:layout_margin="5dp"
+        android:typeface="monospace" />
+   
+   <TextView 
+		android:id="@+id/jobCard_labelLastInspectionDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/jobCard_labelName"
+        android:layout_margin="5dp"
+        android:text="@string/label_last_inspection_date" />
+   
+   <TextView
+   		android:id="@+id/jobCard_textLastInspectionDate"
+   		android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/jobCard_labelLastInspectionDate"
+        android:layout_below="@+id/jobCard_textName"
+        android:layout_margin="5dp"
+        android:typeface="monospace" />
+   
+   <TextView 
+		android:id="@+id/jobCard_labelStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/jobCard_labelLastInspectionDate"
+        android:layout_margin="5dp"
+        android:text="@string/label_status" />
+   
+   <TextView
+        android:id="@+id/jobCard_textStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/jobCard_labelStatus"
+        android:layout_below="@+id/jobCard_textLastInspectionDate"
+        android:layout_margin="5dp"
+        android:typeface="monospace"
+        android:textSize="14sp" />
+   
+   </RelativeLayout>
+</merge>

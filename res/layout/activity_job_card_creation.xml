@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/light_blue"
+    tools:context="za.co.tagtron.tagtronuhf.JobCardCreationActivity" >
+
+	<GridLayout
+	    android:id="@+id/gridContents"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:rowCount="3"
+		android:columnCount="3">
+
+	<TextView
+        android:id="@+id/labelDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:text="@string/label_job_date"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	<EditText
+		android:id="@+id/inputJobDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:inputType="date"
+        android:enabled="false"
+        android:focusable="false" />
+        
+	<TextView
+        android:id="@+id/labelName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:text="@string/label_assign_to"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+ 	<Spinner 
+ 	    android:id="@+id/spinnerName"
+ 	    android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_row="1"
+        android:layout_column="1">
+        <requestFocus/>
+    </Spinner>
+	</GridLayout>
+    
+	<TextView 
+	    android:id="@+id/tagsHeader"
+	    android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gridContents"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/label_tags_header"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+	<ListView
+	    android:id="@+id/tagListView"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_below="@+id/tagsHeader" />
+	
+    <Button
+        android:id="@+id/buttonDone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:text="@string/button_done" />
+
+</RelativeLayout>

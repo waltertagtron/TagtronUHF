@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TagtronUhf</string>
+    <string name="tagtron_logo">Tagtron logo</string>
+    <string name="button_new_job_card">New job card</string>
+    <string name="button_config">Config</string>
+    <string name="label_job_date">Job date:</string>
+    <string name="label_name">Name:</string>
+    <string name="label_assign_to">Assign to:</string>
+    <string name="label_assigned_to">Assigned to:</string>
+    <string name="label_last_inspection_date">Last inspection date:</string>
+    <string name="label_status">Status:</string>
+    <string name="button_done">Done</string>
+    <string name="button_update_inspection_date">Inspect Item</string>
+
+    <string name="title_activity_job_card_creation">Create new Job Card</string>
+    <string name="add_new_user">Add new user</string>
+    <string name="enter_techs_name">Enter technician\'s name</string>
+    <string name="title_activity_job_card_viewer">Job Card</string>
+    <string name="label_tags_header">Tags:</string>
+
+    <string name="hint_inspector_name">Inspector name</string>
+    <string name="hint_inspector_company">Inspector company</string>
+    <string name="hint_gps_coordinates">GPS coordinates</string>
+    <string name="button_inspection_ok">Inspection OK</string>
+    <string name="button_inspection_failed">Inspection Failed</string>
+    <string name="hint_scan_another_tag">Scan another tag</string>
+    
+    <string name="title_activity_config">Configuration</string>
+    <string name="label_output_power">Output power:</string>
+    <string name="button_set_power">Set power</string>
+    <string name="label_min_tags">Tags per job card:</string>
+    
+    <string name="title_activity_inspection">Inspect item</string>
+    <string name="title_activity_domain_selection">Select domain</string>
+    <string name="domain_name">Domain name</string>
+
+    <string name="cancel">Cancel</string>
+    
+    <string-array name="array_min_tags">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+</resources>
