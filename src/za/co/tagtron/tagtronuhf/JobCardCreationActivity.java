@@ -38,7 +38,7 @@ public class JobCardCreationActivity extends UhfScannerActivity {
 	private static final int DEFAULT_TAG_COUNT = 2;
 	
 	Button buttonDone;
-	EditText editJobDate;
+	EditText editJobDate, editShaftNo, editNotes;
 	Spinner spinnerName;
 	long mDateStamp;
 	
@@ -65,6 +65,8 @@ public class JobCardCreationActivity extends UhfScannerActivity {
 		
 		editJobDate = (EditText) findViewById(R.id.inputJobDate);
 		spinnerName = (Spinner) findViewById(R.id.spinnerName);
+		editShaftNo = (EditText) findViewById(R.id.inputShaftNo);
+		editNotes = (EditText) findViewById(R.id.inputNotes);
 		buttonDone = (Button) findViewById(R.id.buttonDone);
 		
 		buttonDone.setOnClickListener(new OnClickListener() {
@@ -150,12 +152,18 @@ public class JobCardCreationActivity extends UhfScannerActivity {
 			return;
 		}
 		
+		String shaftNo = editShaftNo.getText().toString().trim();
+		if (shaftNo.isEmpty()) {
+			Toast.makeText(this, "Please enter the shaft number", Toast.LENGTH_SHORT).show();
+		}
+		String notes = editNotes.getText().toString().trim();
+		
 		if (tags.size() < minimumTags) {
 			Toast.makeText(this, "You must associate at least " + minimumTags + " tags with this job. Hold the trigger to scan more tags.", Toast.LENGTH_SHORT).show();
 			return;
 		}
-
-		RepairData rd = new RepairData("", name, mDateStamp);
+		
+		RepairData rd = new RepairData("", name, mDateStamp, shaftNo, notes);
 		for (Tag tag : tags) {
 			rd.addTag(tag);
 		}

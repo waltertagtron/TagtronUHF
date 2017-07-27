@@ -11,7 +11,7 @@ import android.widget.TextView;
 class JobCardView extends RelativeLayout {
 	
 	private RepairData job;
-	private TextView mTvName, mTvJobDate, mTvInspectionDate, mTvStatus;
+	private TextView mTvName, mTvJobDate, mTvInspectionDate, mTvStatus, mTvShaftNo, mTvNotes;
 	
 	public JobCardView(Context context) {
 		super(context);
@@ -41,18 +41,24 @@ class JobCardView extends RelativeLayout {
 	public void setJobData(RepairData job) {
 		mTvName = (TextView) findViewById(R.id.jobCard_textName);
 		mTvJobDate = (TextView) findViewById(R.id.jobCard_textDate);
+		mTvShaftNo = (TextView) findViewById(R.id.jobCard_textShaftNo);
+		mTvNotes = (TextView) findViewById(R.id.jobCard_textNotes);
 		mTvInspectionDate = (TextView) findViewById(R.id.jobCard_textLastInspectionDate);
 		mTvStatus = (TextView) findViewById(R.id.jobCard_textStatus);
 		
 		if (job == null) {
 			mTvName.setText("");
 			mTvJobDate.setText("-");
+			mTvShaftNo.setText("");
+			mTvNotes.setText("");
 			mTvInspectionDate.setText("-");
 			mTvStatus.setText("");
 		}
 		else {
 			mTvName.setText(job.getTechnicianName());
 			mTvJobDate.setText(job.getRepairDateStr());
+			mTvShaftNo.setText(job.getShaftNo());
+			mTvNotes.setText(job.getNotes());
 			mTvInspectionDate.setText(job.getLastInspectionDateStr());
 			mTvStatus.setText(job.getStatus());
 		}

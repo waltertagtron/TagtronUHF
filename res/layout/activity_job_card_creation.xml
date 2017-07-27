@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,13 +7,18 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/light_blue"
-    tools:context="za.co.tagtron.tagtronuhf.JobCardCreationActivity" >
-
+    tools:context="za.co.tagtron.tagtronuhf.JobCardCreationActivity"
+    android:overScrollMode="never" >
+        
+    <RelativeLayout
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content">
+    
 	<GridLayout
 	    android:id="@+id/gridContents"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:rowCount="3"
+		android:rowCount="5"
 		android:columnCount="3">
 
 	<TextView
@@ -59,6 +64,55 @@
         android:layout_column="1">
         <requestFocus/>
     </Spinner>
+    
+ 	<TextView
+        android:id="@+id/labelShaftNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_row="2"
+        android:layout_column="0"
+        android:text="@string/label_shaft_no"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	<EditText
+		android:id="@+id/inputShaftNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_row="2"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:inputType="text"
+        android:enabled="true"
+        android:focusable="true" />
+ 	
+ 	<TextView
+        android:id="@+id/labelNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_row="3"
+        android:layout_column="0"
+        android:text="@string/label_notes"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	<EditText
+		android:id="@+id/inputNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_row="3"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:inputType="textMultiLine"
+        android:enabled="true"
+        android:focusable="true" />
+	
 	</GridLayout>
     
 	<TextView 
@@ -70,8 +124,8 @@
         android:layout_marginBottom="10dp"
         android:text="@string/label_tags_header"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-        
-	<ListView
+	
+	<za.co.tagtron.tagtronuhf.NonScrollingListView
 	    android:id="@+id/tagListView"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
@@ -82,8 +136,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/tagListView"
         android:layout_margin="20dp"
         android:text="@string/button_done" />
 
-</RelativeLayout>
+	</RelativeLayout>
+</ScrollView>

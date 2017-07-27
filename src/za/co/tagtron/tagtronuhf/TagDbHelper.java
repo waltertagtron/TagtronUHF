@@ -31,6 +31,8 @@ public class TagDbHelper extends SQLiteOpenHelper {
         TagRecord.COLUMN_NAME_LAST_UPDATE_DATE + LONG_TYPE + COMMA_SEP +
         TagRecord.COLUMN_NAME_STATUS + TEXT_TYPE + COMMA_SEP +
         TagRecord.COLUMN_NAME_TECH_NAME + TEXT_TYPE + COMMA_SEP +
+        TagRecord.COLUMN_NAME_SHAFT_NO + TEXT_TYPE + COMMA_SEP +
+        TagRecord.COLUMN_NAME_NOTES + TEXT_TYPE + COMMA_SEP +
         TagRecord.COLUMN_NAME_TAG_UII_0 + TEXT_TYPE + NOT_NULL + COMMA_SEP +
         TagRecord.COLUMN_NAME_TAG_UII_1 + TEXT_TYPE + COMMA_SEP +
         TagRecord.COLUMN_NAME_TAG_UII_2 + TEXT_TYPE + COMMA_SEP +
@@ -91,6 +93,8 @@ public class TagDbHelper extends SQLiteOpenHelper {
     	ContentValues values = new ContentValues();
     	values.put(TagRecord.COLUMN_NAME_JOB_ID, record.getJobId());
     	values.put(TagRecord.COLUMN_NAME_JOB_DATE, record.getCreationTimestamp());
+    	values.put(TagRecord.COLUMN_NAME_SHAFT_NO, record.getShaftNo());
+    	values.put(TagRecord.COLUMN_NAME_NOTES, record.getNotes());
     	values.put(TagRecord.COLUMN_NAME_LAST_UPDATE_DATE, record.getLastInspectionTimestamp());
     	values.put(TagRecord.COLUMN_NAME_STATUS, record.getStatus());
     	values.put(TagRecord.COLUMN_NAME_TECH_NAME, record.getTechnicianName());
@@ -147,6 +151,8 @@ public class TagDbHelper extends SQLiteOpenHelper {
     	
     	String[] columns = { TagRecord.COLUMN_NAME_JOB_ID,
     						 TagRecord.COLUMN_NAME_TECH_NAME,
+    						 TagRecord.COLUMN_NAME_SHAFT_NO,
+    						 TagRecord.COLUMN_NAME_NOTES,
     						 TagRecord.COLUMN_NAME_JOB_DATE,
     						 TagRecord.COLUMN_NAME_LAST_UPDATE_DATE,
     						 TagRecord.COLUMN_NAME_STATUS,
@@ -166,6 +172,8 @@ public class TagDbHelper extends SQLiteOpenHelper {
 	    	if (cursor.moveToFirst()) {
 	    		int jobIdIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_JOB_ID);
 	    		int nameIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_TECH_NAME);
+	    		int shaftNoIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_SHAFT_NO);
+	    		int notesIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_NOTES);
 	    		int jobDateIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_JOB_DATE);
 	    		int updateIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_LAST_UPDATE_DATE);
 	    		int statusIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_STATUS);
@@ -176,6 +184,8 @@ public class TagDbHelper extends SQLiteOpenHelper {
 	    		
 	    		String jobId = cursor.getString(jobIdIndex);
 	    		String name = cursor.getString(nameIndex);
+	    		String shaftNo = cursor.getString(shaftNoIndex);
+	    		String notes = cursor.getString(notesIndex);
 	    		long jobTimestamp = cursor.getLong(jobDateIndex);
 	    		long updateTimestamp = cursor.getLong(updateIndex);
 	    		String status = cursor.getString(statusIndex);
@@ -184,7 +194,7 @@ public class TagDbHelper extends SQLiteOpenHelper {
 	    		String tagId2 = cursor.getString(tagId2Index);
 	    		String tagId3 = cursor.getString(tagId3Index);
 	    		
-	    		RepairData rd = new RepairData(jobId, name, jobTimestamp, updateTimestamp, status);
+	    		RepairData rd = new RepairData(jobId, name, jobTimestamp, shaftNo, notes, updateTimestamp, status);
 	    		if (!tagId0.isEmpty()) { rd.addTag(tagId0); }
 	    		if (!tagId1.isEmpty()) { rd.addTag(tagId1); }
 	    		if (!tagId2.isEmpty()) { rd.addTag(tagId2); }
@@ -217,6 +227,8 @@ public class TagDbHelper extends SQLiteOpenHelper {
 	    	if (cursor.moveToFirst()) {
 	    		int jobIdIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_JOB_ID);
 	    		int nameIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_TECH_NAME);
+	    		int shaftNoIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_SHAFT_NO);
+	    		int notesIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_NOTES);
 	    		int jobDateIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_JOB_DATE);
 	    		int updateIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_LAST_UPDATE_DATE);
 	    		int statusIndex = cursor.getColumnIndex(TagRecord.COLUMN_NAME_STATUS);
@@ -227,6 +239,8 @@ public class TagDbHelper extends SQLiteOpenHelper {
 	    		
 	    		String jobId = cursor.getString(jobIdIndex);
 	    		String name = cursor.getString(nameIndex);
+	    		String shaftNo = cursor.getString(shaftNoIndex);
+	    		String notes = cursor.getString(notesIndex);
 	    		long jobTimestamp = cursor.getLong(jobDateIndex);
 	    		long updateTimestamp = cursor.getLong(updateIndex);
 	    		String status = cursor.getString(statusIndex);
@@ -235,7 +249,7 @@ public class TagDbHelper extends SQLiteOpenHelper {
 	    		String tagId2 = cursor.getString(tagId2Index);
 	    		String tagId3 = cursor.getString(tagId3Index);
 	    		
-	    		RepairData rd = new RepairData(jobId, name, jobTimestamp, updateTimestamp, status);
+	    		RepairData rd = new RepairData(jobId, name, jobTimestamp, shaftNo, notes, updateTimestamp, status);
 	    		if (!tagId0.isEmpty()) { rd.addTag(tagId0); }
 	    		if (!tagId1.isEmpty()) { rd.addTag(tagId1); }
 	    		if (!tagId2.isEmpty()) { rd.addTag(tagId2); }

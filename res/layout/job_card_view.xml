@@ -42,11 +42,47 @@
         android:typeface="monospace" />
    
    <TextView 
-		android:id="@+id/jobCard_labelLastInspectionDate"
+		android:id="@+id/jobCard_labelShaftNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/jobCard_labelName"
+        android:layout_margin="5dp"
+        android:text="@string/label_shaft_no" />
+   	    
+   <TextView
+        android:id="@+id/jobCard_textShaftNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/jobCard_labelShaftNo"
+        android:layout_below="@+id/jobCard_textName"
+        android:layout_margin="5dp"
+        android:typeface="monospace" />
+   
+   <TextView 
+		android:id="@+id/jobCard_labelNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/jobCard_labelShaftNo"
+        android:layout_margin="5dp"
+        android:text="@string/label_notes" />
+   	    
+   <TextView
+        android:id="@+id/jobCard_textNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/jobCard_labelNotes"
+        android:layout_below="@+id/jobCard_textShaftNo"
+        android:layout_margin="5dp"
+        android:typeface="monospace" />
+   
+   <TextView 
+		android:id="@+id/jobCard_labelLastInspectionDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/jobCard_labelNotes"
         android:layout_margin="5dp"
         android:text="@string/label_last_inspection_date" />
    
@@ -55,7 +91,7 @@
    		android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/jobCard_labelLastInspectionDate"
-        android:layout_below="@+id/jobCard_textName"
+        android:layout_below="@+id/jobCard_textNotes"
         android:layout_margin="5dp"
         android:typeface="monospace" />
    

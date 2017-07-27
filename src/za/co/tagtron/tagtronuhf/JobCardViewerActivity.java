@@ -53,7 +53,7 @@ public class JobCardViewerActivity extends ReaderActivity {
 		super.onResume();
 		
 		// This ends up reading twice on initial launch
-		new ReadDbTask().execute(mRepairData.getJobId());
+		new ReadDbTask().execute(mRepairData.getTagId(0));
 	}
 	
 	private void inspectItem() {
@@ -63,9 +63,10 @@ public class JobCardViewerActivity extends ReaderActivity {
 	private class ReadDbTask extends AsyncTask<String, Void, RepairData> {
     	@Override
 		protected RepairData doInBackground(String... params) {
-			String uii = params[0];
-			if (!uii.isEmpty()) {
-				return getDbHelper().getTagEntry(uii);
+			String tagId = params[0];
+			if (!tagId.isEmpty()) {
+				RepairData foo = getDbHelper().getTagEntry(tagId);
+				return foo;
 			}
 			return null;
 		}

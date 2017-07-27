@@ -12,6 +12,8 @@ public final class TagRecordContract {
         public static final String COLUMN_NAME_JOB_DATE = "job_date";
         public static final String COLUMN_NAME_LAST_UPDATE_DATE = "last_update_date";
         public static final String COLUMN_NAME_TECH_NAME = "technician_name";
+        public static final String COLUMN_NAME_SHAFT_NO = "shaft_no";
+        public static final String COLUMN_NAME_NOTES = "notes";
         public static final String COLUMN_NAME_STATUS = "status";
         public static final String COLUMN_NAME_SYNCED = "synced";
         public static final String COLUMN_NAME_TAG_UII_0 = "tag_uii_0";

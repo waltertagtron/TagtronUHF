@@ -17,21 +17,26 @@ public class RepairData implements Serializable {
 	private String jobId = "";
 	private long repairTimestamp, lastInspectionTimestamp; 
 	private String technicianName = "";
+	private String shaftNo = "";
+	private String notes = "";
 	private String lastInspectionStatus = "";
 	private List<Tag> tags;
 	
-	public RepairData(String jobId, String technicianName, long repairTimestamp) {
-		this(jobId, technicianName, repairTimestamp, 0L, "");
+	public RepairData(String jobId, String technicianName, long repairTimestamp,
+			String shaftNo,	String notes) {
+		this(jobId, technicianName, repairTimestamp, shaftNo, notes, 0L, "");
 	}
 	
 	public RepairData(String jobId, String technicianName, long repairTimestamp, 
-			long lastInspectionTimestamp, String lastInspectionStatus) {
-		this(jobId, technicianName, repairTimestamp, lastInspectionTimestamp,
-				lastInspectionStatus, "");
+			String shaftNo, String notes, long lastInspectionTimestamp,
+			String lastInspectionStatus) {
+		this(jobId, technicianName, repairTimestamp, shaftNo, notes, 
+				lastInspectionTimestamp, lastInspectionStatus, "");
 	}
 	
-	public RepairData(String jobId, String technicianName, long repairTimestamp, 
-			long lastInspectionTimestamp, String lastInspectionStatus, String... tagIds) {
+	public RepairData(String jobId, String technicianName, long repairTimestamp,
+			String shaftNo, String notes, long lastInspectionTimestamp,
+			String lastInspectionStatus, String... tagIds) {
 		
 		if (repairTimestamp == 0) {
 			repairTimestamp = System.currentTimeMillis();
@@ -45,6 +50,8 @@ public class RepairData implements Serializable {
 		this.jobId = jobId;
 		this.repairTimestamp = repairTimestamp;
 		this.technicianName = technicianName;
+		this.shaftNo = shaftNo;
+		this.notes = notes;
 		this.lastInspectionTimestamp = lastInspectionTimestamp;
 		this.lastInspectionStatus = lastInspectionStatus;
 		
@@ -76,6 +83,14 @@ public class RepairData implements Serializable {
 		return technicianName;
 	}
 	
+	public String getShaftNo() {
+		return shaftNo;
+	}
+	
+	public String getNotes() {
+		return notes;
+	}
+	
 	public String getRepairDateStr() {
 		if (repairTimestamp == 0) {
 			return "-";
@@ -103,6 +118,14 @@ public class RepairData implements Serializable {
 	
 	public void setStatus(String status) {
 		this.lastInspectionStatus = status;
+	}
+	
+	public void setShaftNo(String shaftNo) {
+		this.shaftNo = shaftNo;
+	}
+	
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 	
 	public long getCreationTimestamp() {

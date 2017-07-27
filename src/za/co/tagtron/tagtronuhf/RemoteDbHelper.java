@@ -24,6 +24,8 @@ public class RemoteDbHelper {
 	private static final String ATTR_JOB_ID = "JobId";
     private static final String ATTR_NAME = "Name";
     private static final String ATTR_JOB_DATE = "JobDate";
+    private static final String ATTR_SHAFT_NO = "ShaftNo";
+    private static final String ATTR_NOTES = "Notes";
     private static final String ATTR_LAST_INSPECTION_DATE = "LastInspectionDate";
     private static final String ATTR_LAST_INSPECTION_STATUS = "LastInspectionStatus";
     private static final String ATTR_TAG_ID = "TagId";
@@ -73,6 +75,9 @@ public class RemoteDbHelper {
 			attrs.add(new ReplaceableAttribute(ATTR_JOB_DATE, rd.getRepairDateStr(), Boolean.TRUE));
 			attrs.add(new ReplaceableAttribute(ATTR_LAST_INSPECTION_DATE, rd.getLastInspectionDateStr(), Boolean.TRUE));
 			attrs.add(new ReplaceableAttribute(ATTR_LAST_INSPECTION_STATUS, STATUS_NEW, Boolean.TRUE));
+			attrs.add(new ReplaceableAttribute(ATTR_SHAFT_NO, rd.getShaftNo(), Boolean.TRUE));
+			attrs.add(new ReplaceableAttribute(ATTR_NOTES, rd.getNotes(), Boolean.TRUE));
+			
 			for (Tag t : rd.getAllTags()) {
 				attrs.add(new ReplaceableAttribute(ATTR_TAG_ID, t.getTagId(), Boolean.FALSE));
 			}
@@ -130,6 +135,8 @@ public class RemoteDbHelper {
 			
 			String jobId = item.getName();
 			String name = "";
+			String shaftNo = "";
+			String notes = "";
 			long jobDate = 0;
 			long inspectionDate = 0;
 			String lastInspectionStatus = "";
@@ -140,6 +147,12 @@ public class RemoteDbHelper {
 				String attrName = attr.getName();
 				if (attrName.equals(ATTR_NAME)) {
 					name = attr.getValue();
+				}
+				else if (attrName.equals(ATTR_SHAFT_NO)) {
+					shaftNo = attr.getValue();
+				}
+				else if (attrName.equals(ATTR_NOTES)) {
+					notes = attr.getValue();
 				}
 				else if (attrName.equals(ATTR_JOB_DATE)) {
 					String jobDateStr = attr.getValue();
@@ -182,7 +195,7 @@ public class RemoteDbHelper {
 					tagIds.add(attr.getValue());
 				}
 			}
-			return new RepairData(jobId, name, jobDate, inspectionDate, lastInspectionStatus, tagIds.toArray(new String[0]));
+			return new RepairData(jobId, name, jobDate, shaftNo, notes, inspectionDate, lastInspectionStatus, tagIds.toArray(new String[0]));
 		}
 		return null;
 	}

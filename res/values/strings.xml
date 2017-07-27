@@ -9,6 +9,8 @@
     <string name="label_name">Name:</string>
     <string name="label_assign_to">Assign to:</string>
     <string name="label_assigned_to">Assigned to:</string>
+    <string name="label_shaft_no">Shaft number:</string>
+    <string name="label_notes">Notes:</string>
     <string name="label_last_inspection_date">Last inspection date:</string>
     <string name="label_status">Status:</string>
     <string name="button_done">Done</string>
